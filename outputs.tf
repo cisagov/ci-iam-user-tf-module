@@ -5,13 +5,13 @@ output "access_key" {
 }
 
 output "production_role" {
-  value       = aws_iam_role.production_role
-  description = "The IAM role that allows the CI user to do what it needs to do in the production account."
+  value       = aws_iam_role.production
+  description = "The IAM role that the CI user can assume to do what it needs to do in the production account."
 }
 
 output "staging_role" {
-  value       = aws_iam_role.staging_role
-  description = "The IAM role that allows the CI user to do what it needs to do in the staging account."
+  value       = aws_iam_role.staging
+  description = "The IAM role that the CI user can assume to do what it needs to do in the staging account."
 }
 
 output "user" {

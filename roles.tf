@@ -10,7 +10,7 @@ resource "aws_iam_role" "production" {
 }
 
 # The staging role
-resource "aws_iam_role" "staging_role" {
+resource "aws_iam_role" "staging" {
   provider = aws.staging
 
   assume_role_policy   = data.aws_iam_policy_document.assume_role_doc.json
