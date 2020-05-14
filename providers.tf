@@ -1,4 +1,15 @@
-# Default provider information.
+# This is the default provider that is used to create the CI user
 provider "aws" {
-  region = var.aws_region
+}
+
+# This is the provider that is used to create the CI role inside the
+# production account
+provider "aws" {
+  alias = "production"
+}
+
+# This is the provider that is used to create the CI role inside the
+# staging account
+provider "aws" {
+  alias = "staging"
 }

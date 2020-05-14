@@ -1,24 +1,20 @@
-output "id" {
-  value       = aws_instance.example.id
-  description = "The EC2 instance ID"
+output "access_key" {
+  value       = aws_iam_access_key.key
+  description = "The IAM access key associated with the CI IAM user."
+  sensitive   = true
 }
 
-output "arn" {
-  value       = aws_instance.example.arn
-  description = "The EC2 instance ARN"
+output "production_role" {
+  value       = aws_iam_role.production_role
+  description = "The IAM role that allows the CI user to do what it needs to do in the production account."
 }
 
-output "availability_zone" {
-  value       = aws_instance.example.availability_zone
-  description = "The AZ where the EC2 instance is deployed"
+output "staging_role" {
+  value       = aws_iam_role.staging_role
+  description = "The IAM role that allows the CI user to do what it needs to do in the staging account."
 }
 
-output "private_ip" {
-  value       = aws_instance.example.private_ip
-  description = "The private IP of the EC2 instance"
-}
-
-output "subnet_id" {
-  value       = aws_instance.example.subnet_id
-  description = "The ID of the subnet where the EC2 instance is deployed"
+output "user" {
+  value       = aws_iam_user.user
+  description = "The CI IAM user."
 }
