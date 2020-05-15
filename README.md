@@ -26,7 +26,7 @@ module "example" {
 
 ## Examples ##
 
-* [Deploying into the default VPC](https://github.com/cisagov/ci-iam-user-tf-module/tree/develop/examples/default_vpc)
+* [Creating a CI test user for Molecule](https://github.com/cisagov/molecule-iam-user-tf-module)
 
 ## Providers ##
 
