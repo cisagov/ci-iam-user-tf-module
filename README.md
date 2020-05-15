@@ -2,17 +2,10 @@
 
 [![GitHub Build Status](https://github.com/cisagov/ci-iam-user-tf-module/workflows/build/badge.svg)](https://github.com/cisagov/ci-iam-user-tf-module/actions)
 
-This is a generic skeleton project that can be used to quickly get a
-new [cisagov](https://github.com/cisagov) [Terraform
-module](https://www.terraform.io/docs/modules/index.html) GitHub
-repository started.  This skeleton project contains [licensing
-information](LICENSE), as well as [pre-commit
-hooks](https://pre-commit.com) and
-[GitHub Actions](https://github.com/features/actions) configurations
-appropriate for the major languages that we use.
-
-See [here](https://www.terraform.io/docs/modules/index.html) for more
-details on Terraform modules and the standard module structure.
+This Terraform module creates an IAM user that can assume two roles -
+a staging role and a production role.  The intent is that one create
+policies that give permissions to access resources in the staging and
+production environments and attach them to the corresponding role.
 
 ## Usage ##
 
@@ -20,9 +13,9 @@ details on Terraform modules and the standard module structure.
 module "example" {
   source = "github.com/cisagov/ci-iam-user-tf-module"
 
-  aws_region            = "us-west-1"
-  aws_availability_zone = "b"
-  subnet_id             = "subnet-0123456789abcdef0"
+  role_description = "A role that can be assumed to allow for CI testing of my-repo."
+  role_name        = "Test-my-repo"
+  user_name        = "test-my-repo"
 
   tags = {
     Key1 = "Value1"
@@ -35,24 +28,34 @@ module "example" {
 
 * [Deploying into the default VPC](https://github.com/cisagov/ci-iam-user-tf-module/tree/develop/examples/default_vpc)
 
+## Providers ##
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+| aws.production | n/a |
+| aws.staging | n/a |
+
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-------:|:--------:|
-| aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
-| aws_availability_zone | The AWS availability zone to deploy into (e.g. a, b, c, etc.) | string | | yes |
-| subnet_id | The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0) | string | | yes |
-| tags | Tags to apply to all AWS resources created | map(string) | `{}` | no |
+|------|-------------|------|---------|:-----:|
+| production_role_tags | Extra tags to apply only to the production role resource | `map(string)` | {"GitHub_Secret_Name": "TEST_ROLE_TO_ASSUME", "GitHub_Secret_Terraform_Lookup": "arn"} | no |
+| role_description | The description to associate with the IAM roles that allow this IAM user to do whatever it needs to do in the production and staging environments (e.g. Test the cisagov/ci-iam-user-tf-module repository). | `string` | n/a | yes |
+| role_max_session_duration | The maximum session duration (in seconds) when assuming the IAM role that allows this IAM user to do whatever it needs to do. | `number` | `3600` | no |
+| role_name | The name to assign the IAM roles that allows allows this IAM user to do whatever it needs to do in the staging and production environments (e.g. TestCIIAMUserTFModule).  Note that a hyphen followed by Staging or Production will appended to this name, so that the staging and production roles are differentiated. | `string` | n/a | yes |
+| staging_role_tags | Extra tags to apply only to the staging role resource | `map(string)` | `{}` | no |
+| tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
+| user_name | The name to associate with the AWS IAM user (e.g. test-ci-iam-user-tf-module). | `string` | n/a | yes |
 
 ## Outputs ##
 
 | Name | Description |
 |------|-------------|
-| id | The EC2 instance ID |
-| arn | The EC2 instance ARN |
-| availability_zone | The AZ where the EC2 instance is deployed |
-| private_ip | The private IP of the EC2 instance |
-| subnet_id | The ID of the subnet where the EC2 instance is deployed |
+| access_key | The IAM access key associated with the CI IAM user. |
+| production_role | The IAM role that the CI user can assume to do what it needs to do in the production account. |
+| staging_role | The IAM role that the CI user can assume to do what it needs to do in the staging account. |
+| user | The CI IAM user. |
 
 ## Notes ##
 
