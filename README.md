@@ -28,19 +28,26 @@ module "example" {
 
 * [Creating a CI test user for Molecule](https://github.com/cisagov/molecule-iam-user-tf-module)
 
+## Requirements ##
+
+| Name | Version |
+|------|---------|
+| terraform | ~> 0.12.0 |
+| aws | ~> 2.0 |
+
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
-| aws.production | n/a |
-| aws.staging | n/a |
+| aws | ~> 2.0 |
+| aws.production | ~> 2.0 |
+| aws.staging | ~> 2.0 |
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
-| production_role_tags | Extra tags to apply only to the production role resource | `map(string)` | {"GitHub_Secret_Name": "TEST_ROLE_TO_ASSUME", "GitHub_Secret_Terraform_Lookup": "arn"} | no |
+|------|-------------|------|---------|:--------:|
+| production_role_tags | Extra tags to apply only to the production role resource | `map(string)` | `{"GitHub_Secret_Name": "TEST_ROLE_TO_ASSUME", "GitHub_Secret_Terraform_Lookup": "arn"}` | no |
 | role_description | The description to associate with the IAM roles that allow this IAM user to do whatever it needs to do in the production and staging environments (e.g. Test the cisagov/ci-iam-user-tf-module repository). | `string` | n/a | yes |
 | role_max_session_duration | The maximum session duration (in seconds) when assuming the IAM role that allows this IAM user to do whatever it needs to do. | `number` | `3600` | no |
 | role_name | The name to assign the IAM roles that allows allows this IAM user to do whatever it needs to do in the staging and production environments (e.g. TestCIIAMUserTFModule).  Note that a hyphen followed by Staging or Production will appended to this name, so that the staging and production roles are differentiated. | `string` | n/a | yes |
