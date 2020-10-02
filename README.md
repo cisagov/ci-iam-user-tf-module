@@ -43,24 +43,10 @@ module "example" {
 | aws.production | ~> 2.0 |
 | aws.staging | ~> 2.0 |
 
-## Requirements ##
-
-| Name | Version |
-|------|---------|
-| terraform | ~> 0.12.0 |
-| aws | ~> 2.0 |
-
-## Providers ##
-
-| Name | Version |
-|------|---------|
-| aws | ~> 2.0 |
-
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-<<<<<<< HEAD
 | production_role_tags | Extra tags to apply only to the production role resource | `map(string)` | `{"GitHub_Secret_Name": "TEST_ROLE_TO_ASSUME", "GitHub_Secret_Terraform_Lookup": "arn"}` | no |
 | role_description | The description to associate with the IAM roles that allow this IAM user to do whatever it needs to do in the production and staging environments (e.g. Test the cisagov/ci-iam-user-tf-module repository). | `string` | n/a | yes |
 | role_max_session_duration | The maximum session duration (in seconds) when assuming the IAM role that allows this IAM user to do whatever it needs to do. | `number` | `3600` | no |
@@ -68,29 +54,15 @@ module "example" {
 | staging_role_tags | Extra tags to apply only to the staging role resource | `map(string)` | `{}` | no |
 | tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
 | user_name | The name to associate with the AWS IAM user (e.g. test-ci-iam-user-tf-module). | `string` | n/a | yes |
-=======
-| aws_availability_zone | The AWS availability zone to deploy into (e.g. a, b, c, etc.) | `string` | `a` | no |
-| aws_region | The AWS region to deploy into (e.g. us-east-1) | `string` | `us-east-1` | no |
-| subnet_id | The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0) | `string` | n/a | yes |
-| tags | Tags to apply to all AWS resources created | `map(string)` | `{}` | no |
->>>>>>> 365f6dd6e7aaaafb892727e8556c7a63e9eaf57b
 
 ## Outputs ##
 
 | Name | Description |
 |------|-------------|
-<<<<<<< HEAD
 | access_key | The IAM access key associated with the CI IAM user. |
 | production_role | The IAM role that the CI user can assume to do what it needs to do in the production account. |
 | staging_role | The IAM role that the CI user can assume to do what it needs to do in the staging account. |
 | user | The CI IAM user. |
-=======
-| arn | The EC2 instance ARN |
-| availability_zone | The AZ where the EC2 instance is deployed |
-| id | The EC2 instance ID |
-| private_ip | The private IP of the EC2 instance |
-| subnet_id | The ID of the subnet where the EC2 instance is deployed |
->>>>>>> 365f6dd6e7aaaafb892727e8556c7a63e9eaf57b
 
 ## Notes ##
 

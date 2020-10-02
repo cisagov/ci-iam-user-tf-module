@@ -4,32 +4,16 @@
 # You must provide a value for each of these parameters.
 # ------------------------------------------------------------------------------
 
-<<<<<<< HEAD
 variable "role_description" {
   type        = string
   description = "The description to associate with the IAM roles that allow this IAM user to do whatever it needs to do in the production and staging environments (e.g. Test the cisagov/ci-iam-user-tf-module repository)."
 }
 
 variable "role_name" {
-=======
-variable "subnet_id" {
-  type        = string
-  description = "The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0)"
-}
-
-# ------------------------------------------------------------------------------
-# OPTIONAL PARAMETERS
-#
-# These parameters have reasonable defaults.
-# ------------------------------------------------------------------------------
-
-variable "aws_availability_zone" {
->>>>>>> 365f6dd6e7aaaafb892727e8556c7a63e9eaf57b
   type        = string
   description = "The name to assign the IAM roles that allows allows this IAM user to do whatever it needs to do in the staging and production environments (e.g. TestCIIAMUserTFModule).  Note that a hyphen followed by Staging or Production will appended to this name, so that the staging and production roles are differentiated."
 }
 
-<<<<<<< HEAD
 variable "user_name" {
   type        = string
   description = "The name to associate with the AWS IAM user (e.g. test-ci-iam-user-tf-module)."
@@ -62,14 +46,6 @@ variable "staging_role_tags" {
   default     = {}
 }
 
-=======
-variable "aws_region" {
-  type        = string
-  description = "The AWS region to deploy into (e.g. us-east-1)"
-  default     = "us-east-1"
-}
-
->>>>>>> 365f6dd6e7aaaafb892727e8556c7a63e9eaf57b
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to all AWS resources created"
