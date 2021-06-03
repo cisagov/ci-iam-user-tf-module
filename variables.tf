@@ -45,9 +45,3 @@ variable "staging_role_tags" {
   description = "Extra tags to apply only to the staging role resource"
   default     = {}
 }
-
-variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created"
-  default     = {}
-}
