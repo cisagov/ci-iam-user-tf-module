@@ -27,7 +27,7 @@ variable "user_name" {
 
 variable "production_role_tags" {
   type        = map(string)
-  description = "Extra tags to apply only to the production role resource"
+  description = "Extra tags to apply only to the production role resource."
   default = {
     "GitHub_Secret_Name"             = "TEST_ROLE_TO_ASSUME",
     "GitHub_Secret_Terraform_Lookup" = "arn"
@@ -42,12 +42,6 @@ variable "role_max_session_duration" {
 
 variable "staging_role_tags" {
   type        = map(string)
-  description = "Extra tags to apply only to the staging role resource"
-  default     = {}
-}
-
-variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created"
+  description = "Extra tags to apply only to the staging role resource."
   default     = {}
 }

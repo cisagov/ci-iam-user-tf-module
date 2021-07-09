@@ -5,7 +5,6 @@
 # The IAM user being created
 resource "aws_iam_user" "user" {
   name = var.user_name
-  tags = var.tags
 }
 
 # The IAM access key for the user

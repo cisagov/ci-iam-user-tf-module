@@ -6,7 +6,7 @@ resource "aws_iam_role" "production" {
   description          = var.role_description
   max_session_duration = var.role_max_session_duration
   name                 = join("-", [var.role_name, "Production"])
-  tags                 = merge(var.tags, var.production_role_tags)
+  tags                 = var.production_role_tags
 }
 
 # The staging role
@@ -17,5 +17,5 @@ resource "aws_iam_role" "staging" {
   description          = var.role_description
   max_session_duration = var.role_max_session_duration
   name                 = join("-", [var.role_name, "Staging"])
-  tags                 = merge(var.tags, var.staging_role_tags)
+  tags                 = var.staging_role_tags
 }
