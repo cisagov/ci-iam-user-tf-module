@@ -21,7 +21,7 @@ module "example" {
 
 ## Examples ##
 
-* [Creating a CI test user for Molecule](https://github.com/cisagov/molecule-iam-user-tf-module)
+- [Creating a CI test user for Molecule](https://github.com/cisagov/molecule-iam-user-tf-module)
 
 ## Requirements ##
 
