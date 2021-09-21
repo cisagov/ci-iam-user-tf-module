@@ -1,7 +1,3 @@
-# This is the default provider that is used to create the CI user
-provider "aws" {
-}
-
 # This is the provider that is used to create the CI role inside the
 # production account
 provider "aws" {
