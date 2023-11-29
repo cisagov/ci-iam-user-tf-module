@@ -23,20 +23,21 @@ module "example" {
 
 - [Creating a CI test user for Molecule](https://github.com/cisagov/molecule-iam-user-tf-module)
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements ##
 
 | Name | Version |
 |------|---------|
 | terraform | ~> 1.0 |
-| aws | ~> 3.38 |
+| aws | ~> 4.9 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.38 |
-| aws.production | ~> 3.38 |
-| aws.staging | ~> 3.38 |
+| aws | ~> 4.9 |
+| aws.production | ~> 4.9 |
+| aws.staging | ~> 4.9 |
 
 ## Modules ##
 
@@ -76,6 +77,7 @@ No modules.
 | production\_role | The IAM role that the CI user can assume to do what it needs to do in the production account. |
 | staging\_role | The IAM role that the CI user can assume to do what it needs to do in the staging account. |
 | user | The CI IAM user. |
+<!-- END_TF_DOCS -->
 
 ## Notes ##
 
