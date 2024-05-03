@@ -16,10 +16,10 @@ data "aws_iam_policy_document" "assume_role_doc" {
     ]
 
     principals {
-      type = "AWS"
       identifiers = [
         data.aws_caller_identity.users.account_id,
       ]
+      type = "AWS"
     }
   }
 }
