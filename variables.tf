@@ -5,18 +5,18 @@
 # ------------------------------------------------------------------------------
 
 variable "role_description" {
-  type        = string
   description = "The description to associate with the IAM roles that allow this IAM user to do whatever it needs to do in the production and staging environments (e.g. Test the cisagov/ci-iam-user-tf-module repository)."
+  type        = string
 }
 
 variable "role_name" {
-  type        = string
   description = "The name to assign the IAM roles that allows allows this IAM user to do whatever it needs to do in the staging and production environments (e.g. TestCIIAMUserTFModule).  Note that a hyphen followed by Staging or Production will appended to this name, so that the staging and production roles are differentiated."
+  type        = string
 }
 
 variable "user_name" {
-  type        = string
   description = "The name to associate with the AWS IAM user (e.g. test-ci-iam-user-tf-module)."
+  type        = string
 }
 
 # ------------------------------------------------------------------------------
@@ -26,22 +26,22 @@ variable "user_name" {
 # ------------------------------------------------------------------------------
 
 variable "production_role_tags" {
-  type        = map(string)
-  description = "Extra tags to apply only to the production role resource."
   default = {
     "GitHub_Secret_Name"             = "TEST_ROLE_TO_ASSUME",
     "GitHub_Secret_Terraform_Lookup" = "arn"
   }
+  description = "Extra tags to apply only to the production role resource."
+  type        = map(string)
 }
 
 variable "role_max_session_duration" {
-  type        = number
-  description = "The maximum session duration (in seconds) when assuming the IAM role that allows this IAM user to do whatever it needs to do."
   default     = 3600
+  description = "The maximum session duration (in seconds) when assuming the IAM role that allows this IAM user to do whatever it needs to do."
+  type        = number
 }
 
 variable "staging_role_tags" {
-  type        = map(string)
-  description = "Extra tags to apply only to the staging role resource."
   default     = {}
+  description = "Extra tags to apply only to the staging role resource."
+  type        = map(string)
 }
