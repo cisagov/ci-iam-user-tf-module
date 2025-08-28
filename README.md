@@ -9,7 +9,7 @@ perform all necessary Continuous Integration (CI) tasks.
 
 ```hcl
 module "example" {
-  source = "github.com/cisagov/ci-iam-user-tf-module"
+  source = "github.com/cisagov/ci-iam-user-tf-module?ref=v1.0.0"
 
   role_description = "A role that can be assumed to allow for CI testing of my-repo."
   role_name        = "Test-my-repo"
