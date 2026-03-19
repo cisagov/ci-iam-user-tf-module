@@ -27,14 +27,14 @@ module "example" {
 ## Requirements ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | terraform | >= 1.1 |
 | aws | >= 4.9 |
 
 ## Providers ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | aws | >= 4.9 |
 | aws.ci | >= 4.9 |
 
@@ -45,7 +45,7 @@ No modules.
 ## Resources ##
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_iam_access_key.key](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key) | resource |
 | [aws_iam_role.ci](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
 | [aws_iam_user.user](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
@@ -57,7 +57,7 @@ No modules.
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | role\_description | The description to associate with the IAM role that allows this IAM user to do whatever it needs to do (e.g. Test the cisagov/ci-iam-user-tf-module repository). | `string` | n/a | yes |
 | role\_max\_session\_duration | The maximum session duration (in seconds) when assuming the IAM role that allows this IAM user to do whatever it needs to do. | `number` | `3600` | no |
 | role\_name | The name to assign the IAM role that allows this IAM user to do whatever it needs to do (e.g. TestCIIAMUserTFModule). | `string` | n/a | yes |
@@ -66,7 +66,7 @@ No modules.
 ## Outputs ##
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | access\_key | The IAM access key associated with the CI IAM user. |
 | role | The IAM role that the CI user can assume to do what it needs to do. |
 | user | The CI IAM user. |
